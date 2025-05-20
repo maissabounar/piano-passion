@@ -17,9 +17,13 @@
     <a href="contact.html">Contact</a>
   </nav>
   <ul>
-    <li>🎹 Yamaha C7 Grand Piano</li>
-    <li>🎹 Steinway & Sons Model D</li>
-    <li>🎹 Roland FP-90X (Digital)</li>
+    <li><button onclick="tc.event.button_click({ element_name: 'Yamaha C7' })">Yamaha C7 Grand Piano</button></li>
+    <li><button onclick="tc.event.button_click({ element_name: 'Steinway D' })">Steinway & Sons Model D</button></li>
+    <li><button onclick="tc.event.button_click({ element_name: 'Roland FP-90X' })">Roland FP-90X (Digital)</button></li>
   </ul>
+
+  <script>
+    tc.event.pageview({ page_name: 'Modèles' });
+  </script>
 </body>
 </html>
