@@ -1,26 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>Piano Passion - Accueil</title>
   <script src="https://cdn.tagcommander.com/4395/tc_MMHDomaine_87.js"></script>
   <style>
-    body { font-family: Arial; padding: 20px; }
-    nav a { margin: 10px; }
+    body { font-family: Arial; padding: 20px; max-width: 900px; margin: auto; background: #f9f9f9; }
+    nav a { margin: 10px; text-decoration: none; font-weight: bold; }
+    .social a { margin-right: 15px; text-decoration: none; }
+    .image { margin-top: 20px; }
+    .quote { font-style: italic; margin: 30px 0; }
+    button { margin-top: 15px; }
+    footer { margin-top: 40px; font-size: 0.9em; color: #666; text-align: center; }
   </style>
 </head>
 <body>
   <h1>🎹 Piano Passion</h1>
+  
   <nav>
     <a href="index.html">Accueil</a>
     <a href="models.html">Modèles</a>
     <a href="contact.html">Contact</a>
   </nav>
-  <p>Bienvenue sur Piano Passion, votre guide vers les plus beaux sons du monde.</p>
-  <button onclick="tc.event.button_click({ element_name: 'CTA Accueil' })">Cliquez ici</button>
+
+  <div class="image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Grand_piano.jpg/800px-Grand_piano.jpg" alt="Grand Piano" width="100%">
+  </div>
+
+  <p class="quote">“La musique commence là où s’arrête le pouvoir des mots.” – Richard Wagner :o </p>
+
+  <h2>Découvre l'univers du piano</h2>
+  <ul>
+    <li><a href="https://fr.wikipedia.org/wiki/Piano" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien Wikipedia Piano' })">🔗 En savoir plus sur Wikipédia</a></li>
+    <li><a href="https://www.youtube.com/results?search_query=piano+solo" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien YouTube Piano Solo' })">🎧 Écouter des solos de piano sur YouTube</a></li>
+    <li><a href="https://www.steinway.com/" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien Steinway Site' })">🎹 Visiter le site Steinway & Sons</a></li>
+  </ul>
+
+  <h2>Actions rapides</h2>
+  <button onclick="tc.event.button_click({ element_name: 'CTA Découvrir Modèles' }); location.href='models.html';">Voir les modèles</button>
+  <button onclick="tc.event.button_click({ element_name: 'CTA Contacter' }); location.href='contact.html';">Nous contacter</button>
+
+  <h2>Suivez-nous</h2>
+  <div class="social">
+    <a href="https://www.instagram.com" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien Instagram' })">📸 Instagram</a>
+    <a href="https://www.facebook.com" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien Facebook' })">📘 Facebook</a>
+    <a href="https://www.tiktok.com" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien TikTok' })">🎵 TikTok</a>
+  </div>
+
+  <footer>
+    <p>✨ Site fictif créé pour le fun et les tests comme on aime — Maïssa :p ✨</p>
+  </footer>
 
   <script>
     tc.event.pageview({ page_name: 'Accueil' });
   </script>
 </body>
 </html>
+
