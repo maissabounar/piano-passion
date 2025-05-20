@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Piano Passion - Accueil</title>
+  <script>
+    window.tc_debug = true; // Active le debug console (si dispo côté TagCommander)
+  </script>
   <script src="https://cdn.tagcommander.com/4395/tc_MMHDomaine_87.js"></script>
   <style>
     body { font-family: Arial; padding: 20px; max-width: 900px; margin: auto; background: #f9f9f9; }
@@ -15,7 +18,7 @@
   </style>
 </head>
 <body>
-  <h1>🎹 Piano Passion</h1>
+  <h1> Piano Passion</h1>
   
   <nav>
     <a href="index.html">Accueil</a>
@@ -23,38 +26,88 @@
     <a href="contact.html">Contact</a>
   </nav>
 
- <div class="image">
-  <img src="https://raw.githubusercontent.com/ton-pseudo/piano-passion/main/images/piano.jpg" alt="Piano" width="100%">
-</div>
+  <div class="image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Grand_piano.jpg/800px-Grand_piano.jpg" alt="Grand Piano" width="100%">
+  </div>
 
-
-  <p class="quote">“La musique commence là où s’arrête le pouvoir des mots.” – Richard Wagner :o </p>
+  <p class="quote">“La musique commence là où s’arrête le pouvoir des mots.” – Richard Wagner :O</p>
 
   <h2>Découvre l'univers du piano</h2>
   <ul>
-    <li><a href="https://fr.wikipedia.org/wiki/Piano" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien Wikipedia Piano' })"> En savoir plus sur Wikipédia</a></li>
-    <li><a href="https://www.youtube.com/results?search_query=piano+solo" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien YouTube Piano Solo' })"> Écouter des solos de piano sur YouTube</a></li>
-    <li><a href="https://www.steinway.com/" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien Steinway Site' })"> Visiter le site Steinway & Sons</a></li>
+    <li><a href="https://fr.wikipedia.org/wiki/Piano" target="_blank"
+      onclick="tc.event.button_click({ 
+        element_name: 'Lien Wikipedia Piano', 
+        button_name: 'Lien Wikipedia', 
+        button_type: 'outgoing' 
+      })"> En savoir plus sur Wikipédia</a></li>
+
+    <li><a href="https://www.youtube.com/results?search_query=piano+solo" target="_blank"
+      onclick="tc.event.button_click({ 
+        element_name: 'Lien YouTube Piano Solo', 
+        button_name: 'Lien YouTube', 
+        button_type: 'outgoing' 
+      })"> Écouter des solos de piano sur YouTube</a></li>
+
+    <li><a href="https://www.steinway.com/" target="_blank"
+      onclick="tc.event.button_click({ 
+        element_name: 'Lien Steinway Site', 
+        button_name: 'Site Steinway', 
+        button_type: 'outgoing' 
+      })"> Visiter le site Steinway & Sons</a></li>
   </ul>
 
   <h2>Actions rapides</h2>
-  <button onclick="tc.event.button_click({ element_name: 'CTA Découvrir Modèles' }); location.href='models.html';">Voir les modèles</button>
-  <button onclick="tc.event.button_click({ element_name: 'CTA Contacter' }); location.href='contact.html';">Nous contacter</button>
+  <button onclick="tc.event.button_click({ 
+    element_name: 'CTA Découvrir Modèles', 
+    button_name: 'Voir modèles', 
+    button_type: 'navigation' 
+  }); location.href='models.html';">Voir les modèles</button>
+
+  <button onclick="tc.event.button_click({ 
+    element_name: 'CTA Contacter', 
+    button_name: 'Nous contacter', 
+    button_type: 'navigation' 
+  }); location.href='contact.html';">Nous contacter</button>
 
   <h2>Suivez-nous</h2>
   <div class="social">
-    <a href="https://www.instagram.com" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien Instagram' })"> Instagram</a>
-    <a href="https://www.facebook.com" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien Facebook' })"> Facebook</a>
-    <a href="https://www.tiktok.com" target="_blank" onclick="tc.event.button_click({ element_name: 'Lien TikTok' })"> TikTok</a>
+    <a href="https://www.instagram.com" target="_blank"
+      onclick="tc.event.button_click({ 
+        element_name: 'Lien Instagram', 
+        button_name: 'Instagram', 
+        button_type: 'social' 
+      })" Instagram</a>
+
+    <a href="https://www.facebook.com" target="_blank"
+      onclick="tc.event.button_click({ 
+        element_name: 'Lien Facebook', 
+        button_name: 'Facebook', 
+        button_type: 'social' 
+      })"> Facebook</a>
+
+    <a href="https://www.tiktok.com" target="_blank"
+      onclick="tc.event.button_click({ 
+        element_name: 'Lien TikTok', 
+        button_name: 'TikTok', 
+        button_type: 'social' 
+      })"> TikTok</a>
   </div>
 
   <footer>
-    <p>✨ Site fictif créé pour le fun et les tests comme on aime — Maïssa :p ✨</p>
+    <p>✨ Site fictif créé pour le fun et les tests comme on aime — Maïssa ✨</p>
   </footer>
 
   <script>
-    tc.event.pageview({ page_name: 'Accueil' });
+    tc.event.pageview({
+      page_name: 'Accueil',
+      page_path: window.location.pathname
+    });
+    console.log('Hit pageview envoyé', {
+      page_name: 'Accueil',
+      page_path: window.location.pathname
+    });
   </script>
 </body>
 </html>
+
 
