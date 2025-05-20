@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Piano Passion - Home Page</title>
+  <title>Piano Passion - Accueil</title>
   <script src="https://cdn.tagcommander.com/4395/tc_MMHDomaine_87.js"></script>
   <style>
     body { font-family: Arial; padding: 20px; }
@@ -17,7 +17,10 @@
     <a href="contact.html">Contact</a>
   </nav>
   <p>Bienvenue sur Piano Passion, votre guide vers les plus beaux sons du monde.</p>
-  <button onclick="alert('Bienvenue !')">Cliquez ici</button>
+  <button onclick="tc.event.button_click({ element_name: 'CTA Accueil' })">Cliquez ici</button>
+
+  <script>
+    tc.event.pageview({ page_name: 'Accueil' });
+  </script>
 </body>
 </html>
-
