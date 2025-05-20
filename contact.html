@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contactez-nous</title>
+  <script src="https://cdn.tagcommander.com/4395/tc_MMHDomaine_87.js"></script>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    nav a { margin: 10px; }
+    .step { display: none; }
+    .step.active { display: block; }
+  </style>
+</head>
+<body>
+  <h1>Formulaire de Contact</h1>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="models.html">Modèles</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <form id="multiStepForm">
+    <div class="step active" id="step1">
+      <label>Quel est le motif de contact ?</label><br>
+      <select name="reason">
+        <option value="info">Demande d'information</option>
+        <option value="achat">Demande d'achat</option>
+        <option value="sav">Service après-vente</option>
+      </select><br><br>
+      <button type="button" onclick="nextStep()">Suivant</button>
+    </div>
+
+    <div class="step" id="step2">
+      <label>Votre nom :</label><br>
+      <input type="text" name="name" required><br><br>
+      <label>Votre email :</label><br>
+      <input type="email" name="email" required><br><br>
+      <button type="button" onclick="prevStep()">Précédent</button>
+      <button type="button" onclick="nextStep()">Suivant</button>
+    </div>
+
+    <div class="step" id="step3">
+      <label>Votre message :</label><br>
+      <textarea name="message" rows="5" cols="40" required></textarea><br><br>
+      <button type="button" onclick="prevStep()">Précédent</button>
+      <button type="submit">Envoyer</button>
+    </div>
+  </form>
+
+  <script>
+    let currentStep = 0;
+    const steps = document.querySelectorAll('.step');
+
+    function showStep(index) {
+      steps.forEach((step, i) => step.classList.toggle('active', i === index));
+      currentStep = index;
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        showStep(currentStep + 1);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        showStep(currentStep - 1);
+      }
+    }
+
+    document.getElementById('multiStepForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Message envoyé ! Merci pour votre contact.');
+    });
+  </script>
+</body>
+</html>
