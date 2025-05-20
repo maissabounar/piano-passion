@@ -25,26 +25,49 @@
 
   <h2> Yamaha C7 Grand Piano</h2>
   <p>Un classique des studios. 227 cm de pure élégance sonore. Idéal pour ceux qui veulent que leurs voisins sachent qu’ils ont un piano... même s’ils habitent à 3 rues.</p>
-  <button onclick="tc.event.button_click({ element_name: 'Yamaha C7 Click' })">J’adore ce modèle</button>
+  <button onclick="tc.event.button_click({ 
+    element_name: 'Yamaha C7 Click',
+    button_name: 'J’adore ce modèle',
+    button_type: 'produit'
+  })">J’adore ce modèle</button>
 
   <h2> Steinway & Sons Model D</h2>
   <p>Le Stradivarius des pianos. Si tu joues mal dessus, c’est toi le problème. Longueur : 274 cm. C’est pas un piano, c’est un vaisseau amiral. À ne pas mettre dans un studio de 12 m².</p>
-  <button onclick="tc.event.button_click({ element_name: 'Steinway D Click' })">Je rêve de l’essayer</button>
+  <button onclick="tc.event.button_click({
+    element_name: 'Steinway D Click',
+    button_name: 'Je rêve de l’essayer',
+    button_type: 'produit'
+  })">Je rêve de l’essayer</button>
 
   <h2> Roland FP-90X (Digital)</h2>
   <p>Portable, mais pas pauvre en sons. Clavier PHA-50, haut-parleurs puissants, et oui, tu peux y brancher un casque pour ne pas réveiller les voisins à 2h du matin. (Tu vois, Yamaha ?)</p>
-  <button onclick="tc.event.button_click({ element_name: 'Roland FP-90X Click' })">Parfait pour mon studio</button>
+  <button onclick="tc.event.button_click({
+    element_name: 'Roland FP-90X Click',
+    button_name: 'Parfait pour mon studio',
+    button_type: 'produit'
+  })">Parfait pour mon studio</button>
 
   <h2> Le piano de Tata Yvette</h2>
   <p>Il craque un peu quand tu appuies sur Do, mais il a une âme. Et quelques morceaux de biscuits dans le pupitre. </p>
-  <button onclick="tc.event.button_click({ element_name: 'Tata Yvette Piano Click' })">Celui-là, il est priceless</button>
+  <button onclick="tc.event.button_click({
+    element_name: 'Tata Yvette Piano Click',
+    button_name: 'Celui-là, il est priceless',
+    button_type: 'produit vintage'
+  })">Celui-là, il est priceless</button>
 
   <footer>
     <p> Page imaginée avec un brin de technique et beaucoup d'amour des touches noires et blanches — Maïssa </p>
   </footer>
 
   <script>
-    tc.event.pageview({ page_name: 'Modèles' });
+    tc.event.pageview({
+      page_name: 'Modèles',
+      page_path: window.location.pathname
+    });
+    console.log('✅ Hit pageview envoyé', {
+      page_name: 'Modèles',
+      page_path: window.location.pathname
+    });
   </script>
 </body>
 </html>
