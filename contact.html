@@ -22,12 +22,12 @@
   <form id="multiStepForm">
     <div class="step active" id="step1">
       <label>Quel est le motif de contact ?</label><br>
-      <select name="reason">
+      <select name="reason" onchange="tc.event.button_click({ element_name: 'Motif sélectionné' })">
         <option value="info">Demande d'information</option>
         <option value="achat">Demande d'achat</option>
         <option value="sav">Service après-vente</option>
       </select><br><br>
-      <button type="button" onclick="nextStep()">Suivant</button>
+      <button type="button" onclick="tc.event.button_click({ element_name: 'Contact Step 1 Suivant' }); nextStep();">Suivant</button>
     </div>
 
     <div class="step" id="step2">
@@ -35,19 +35,21 @@
       <input type="text" name="name" required><br><br>
       <label>Votre email :</label><br>
       <input type="email" name="email" required><br><br>
-      <button type="button" onclick="prevStep()">Précédent</button>
-      <button type="button" onclick="nextStep()">Suivant</button>
+      <button type="button" onclick="tc.event.button_click({ element_name: 'Contact Step 2 Précédent' }); prevStep();">Précédent</button>
+      <button type="button" onclick="tc.event.button_click({ element_name: 'Contact Step 2 Suivant' }); nextStep();">Suivant</button>
     </div>
 
     <div class="step" id="step3">
       <label>Votre message :</label><br>
       <textarea name="message" rows="5" cols="40" required></textarea><br><br>
-      <button type="button" onclick="prevStep()">Précédent</button>
+      <button type="button" onclick="tc.event.button_click({ element_name: 'Contact Step 3 Précédent' }); prevStep();">Précédent</button>
       <button type="submit">Envoyer</button>
     </div>
   </form>
 
   <script>
+    tc.event.pageview({ page_name: 'Contact' });
+
     let currentStep = 0;
     const steps = document.querySelectorAll('.step');
 
@@ -70,8 +72,10 @@
 
     document.getElementById('multiStepForm').addEventListener('submit', function(e) {
       e.preventDefault();
+      tc.event.button_click({ element_name: 'Formulaire Contact Envoyé' });
       alert('Message envoyé ! Merci pour votre contact.');
     });
   </script>
 </body>
 </html>
+
