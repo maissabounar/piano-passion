@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>Contactez-nous</title>
   <script src="https://cdn.tagcommander.com/4395/tc_MMHDomaine_87.js"></script>
   <style>
-    body { font-family: Arial; padding: 20px; }
-    nav a { margin: 10px; }
+    body { font-family: Arial; padding: 20px; max-width: 900px; margin: auto; background: #f9f9f9; }
+    nav a { margin: 10px; text-decoration: none; font-weight: bold; }
     .step { display: none; }
     .step.active { display: block; }
+    button { margin-top: 10px; }
   </style>
 </head>
 <body>
@@ -22,12 +23,20 @@
   <form id="multiStepForm">
     <div class="step active" id="step1">
       <label>Quel est le motif de contact ?</label><br>
-      <select name="reason" onchange="tc.event.button_click({ element_name: 'Motif sélectionné' })">
+      <select name="reason" onchange="tc.event.button_click({
+        element_name: 'Motif sélectionné',
+        button_name: 'Sélection motif',
+        button_type: 'form'
+      })">
         <option value="info">Demande d'information</option>
         <option value="achat">Demande d'achat</option>
         <option value="sav">Service après-vente</option>
       </select><br><br>
-      <button type="button" onclick="tc.event.button_click({ element_name: 'Contact Step 1 Suivant' }); nextStep();">Suivant</button>
+      <button type="button" onclick="tc.event.button_click({
+        element_name: 'Etape 1 Suivant',
+        button_name: 'Formulaire Étape 1',
+        button_type: 'form'
+      }); nextStep();">Suivant</button>
     </div>
 
     <div class="step" id="step2">
@@ -35,20 +44,39 @@
       <input type="text" name="name" required><br><br>
       <label>Votre email :</label><br>
       <input type="email" name="email" required><br><br>
-      <button type="button" onclick="tc.event.button_click({ element_name: 'Contact Step 2 Précédent' }); prevStep();">Précédent</button>
-      <button type="button" onclick="tc.event.button_click({ element_name: 'Contact Step 2 Suivant' }); nextStep();">Suivant</button>
+      <button type="button" onclick="tc.event.button_click({
+        element_name: 'Etape 2 Précédent',
+        button_name: 'Retour Étape 1',
+        button_type: 'form'
+      }); prevStep();">Précédent</button>
+      <button type="button" onclick="tc.event.button_click({
+        element_name: 'Etape 2 Suivant',
+        button_name: 'Formulaire Étape 2',
+        button_type: 'form'
+      }); nextStep();">Suivant</button>
     </div>
 
     <div class="step" id="step3">
       <label>Votre message :</label><br>
       <textarea name="message" rows="5" cols="40" required></textarea><br><br>
-      <button type="button" onclick="tc.event.button_click({ element_name: 'Contact Step 3 Précédent' }); prevStep();">Précédent</button>
+      <button type="button" onclick="tc.event.button_click({
+        element_name: 'Etape 3 Précédent',
+        button_name: 'Retour Étape 2',
+        button_type: 'form'
+      }); prevStep();">Précédent</button>
       <button type="submit">Envoyer</button>
     </div>
   </form>
 
   <script>
-    tc.event.pageview({ page_name: 'Contact' });
+    tc.event.pageview({
+      page_name: 'Contact',
+      page_path: window.location.pathname
+    });
+    console.log(' Hit pageview envoyé', {
+      page_name: 'Contact',
+      page_path: window.location.pathname
+    });
 
     let currentStep = 0;
     const steps = document.querySelectorAll('.step');
@@ -72,7 +100,11 @@
 
     document.getElementById('multiStepForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      tc.event.button_click({ element_name: 'Formulaire Contact Envoyé' });
+      tc.event.button_click({
+        element_name: 'Formulaire Contact Envoyé',
+        button_name: 'Formulaire Submit',
+        button_type: 'form'
+      });
       alert('Message envoyé ! Merci pour votre contact.');
     });
   </script>
